@@ -1,8 +1,8 @@
 package main
 
 import (
-    . "./maps"
-    "fmt"
+	. "./maps"
+	"fmt"
 )
 
 
@@ -20,7 +20,7 @@ func (p Person) String() string {
 //---
 
 func printValues(v Pair) {
-    fmt.Printf("Person, Job = %v, %s\n", v.Key, v.Value)
+	fmt.Printf("Person, Job = %v, %s\n", v.Key, v.Value)
 }
 
 //---
@@ -32,31 +32,31 @@ func main() {
 	p3 := Person{"Jane", "Doe", 30}
 
 	//Create map
-    M := NewSMap()
+	M := NewSMap()
 
-    //Insert into map
-    M.Insert(p1, "Manager")
-    M.Insert(p2, "Employee")
-    M.Insert(p3, "Secretary")
+	//Insert into map
+	M.Insert(p1, "Manager")
+	M.Insert(p2, "Employee")
+	M.Insert(p3, "Secretary")
 
-    //Iterate Map
-    M.Do(printValues)
+	//Iterate Map
+	M.Do(printValues)
 
-    println("---")
+	println("---")
 
-    //Query map
+	//Query map
 	p := Person{"John", "Rambo", 60}
-    result := M.Get(p)
-    if result.Ok  {
-        fmt.Printf("Job = %s\n", result.Value)
-    }
+	result := M.Get(p)
+	if result.Ok {
+		fmt.Printf("Job = %s\n", result.Value)
+	}
 
-    println("---")
+	println("---")
 
-    //Delete from map
-    M.Delete(p1)
+	//Delete from map
+	M.Delete(p1)
 
-    //check
-    M.Do(printValues)
+	//check
+	M.Do(printValues)
 
 }
