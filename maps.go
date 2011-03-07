@@ -42,6 +42,10 @@ func (m *SMap) Delete(key Stringer) {
 	(*m)[key.String()] = Pair{nil, nil}, false
 }
 
+func (m *SMap) Len() int {
+	return len(*m)
+}
+
 //---
 type Inter interface {
 	Int() int
@@ -70,4 +74,8 @@ func (m *IMap) Get(key Inter) ValueOk {
 
 func (m *IMap) Delete(key Inter) {
 	(*m)[key.Int()] = Pair{nil, nil}, false
+}
+
+func (m *IMap) Len() int {
+	return len(*m)
 }
