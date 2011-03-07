@@ -22,28 +22,29 @@ func (p Person) String() string {
 
 func main() {
 
-	printValues := func(v Pair) {
-		fmt.Printf("Person, Job = %v, %s\n", v.Key, v.Value)
-	}
-
 	p1 := Person{"John", "Rambo", 60}
 	p2 := Person{"John", "Doe", 30}
 	p3 := Person{"Jane", "Doe", 30}
 
-	//Create map
+	//Create map:
 	M := NewSMap()
 
-	//Insert into map
+	//Insert into map:
 	M.Insert(p1, "Manager")
 	M.Insert(p2, "Employee")
 	M.Insert(p3, "Secretary")
 
-	//Iterate Map
+    //Action to perform during iteration:
+    printValues := func(v Pair) {
+		fmt.Printf("Person, Job = %v, %s\n", v.Key, v.Value)
+	}
+
+	//Iterate over Map:
 	M.Do(printValues)
 
 	println("---")
 
-	//Query map
+	//Query map:
 	p := Person{"John", "Rambo", 60}
 	result := M.Get(p)
 	if result.Ok {
@@ -55,7 +56,8 @@ func main() {
 	//Delete from map
 	M.Delete(p1)
 
-	//check
+	//Check the result of the deletion,
+    //second iteration over map:
 	M.Do(printValues)
 
 }
