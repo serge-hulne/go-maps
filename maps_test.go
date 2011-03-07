@@ -19,13 +19,12 @@ func (p Person) String() string {
 }
 //---
 
-func printValues(v Pair) {
-	fmt.Printf("Person, Job = %v, %s\n", v.Key, v.Value)
-}
-
-//---
 
 func main() {
+
+    printValues := func (v Pair) {
+	    fmt.Printf("Person, Job = %v, %s\n", v.Key, v.Value)
+    }
 
 	p1 := Person{"John", "Rambo", 60}
 	p2 := Person{"John", "Doe", 30}
