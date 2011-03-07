@@ -34,8 +34,8 @@ func main() {
 	M.Insert(p2, "Employee")
 	M.Insert(p3, "Secretary")
 
-    //Action to perform during iteration:
-    printValues := func(v Pair) {
+	//Action to perform during iteration:
+	printValues := func(v Pair) {
 		fmt.Printf("Person, Job = %v, %s\n", v.Key, v.Value)
 	}
 
@@ -57,7 +57,7 @@ func main() {
 	M.Delete(p1)
 
 	//Check the result of the deletion,
-    //second iteration over map:
+	//second iteration over map:
 	M.Do(printValues)
 
 }
