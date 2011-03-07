@@ -1,7 +1,7 @@
 package main
 
 import (
-	. "./maps"
+	. "maps"
 	"fmt"
 )
 
