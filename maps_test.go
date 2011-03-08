@@ -60,6 +60,6 @@ func main() {
 	//second iteration over map:
 	M.Do(printValues)
 
-	fmt.Printf("Size of ap M = %d\n", M.Len())
+	fmt.Printf("Size of map M = %d\n", M.Len())
 
 }
