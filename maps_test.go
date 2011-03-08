@@ -13,7 +13,7 @@ type Person struct {
 	Age     int
 }
 
-func (p Person) String() string {
+func (p *Person) String() string {
 	s := p.Name + "#" + p.Surname
 	return s
 }
@@ -22,9 +22,9 @@ func (p Person) String() string {
 
 func main() {
 
-	p1 := Person{"John", "Rambo", 60}
-	p2 := Person{"John", "Doe", 30}
-	p3 := Person{"Jane", "Doe", 30}
+	p1 := &Person{"John", "Rambo", 60}
+	p2 := &Person{"John", "Doe", 30}
+	p3 := &Person{"Jane", "Doe", 30}
 
 	//Create map:
 	M := NewSMap()
@@ -45,7 +45,7 @@ func main() {
 	println("---")
 
 	//Query map:
-	p := Person{"John", "Rambo", 60}
+	p := &Person{"John", "Rambo", 60}
 	Value, Ok := M.Get(p)
 	if  Ok {
 		fmt.Printf("Job = %s\n", Value)
