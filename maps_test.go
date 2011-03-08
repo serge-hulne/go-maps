@@ -6,7 +6,6 @@ import (
 )
 
 
-
 //---
 type Person struct {
 	Name    string
@@ -14,10 +13,10 @@ type Person struct {
 	Age     int
 }
 
-func (p *Person) String() string {
-	s := p.Name + "#" + p.Surname
-	return s
+func (p *Person) Key() interface{} {
+	return p.Name + "#" + p.Surname
 }
+
 //---
 
 
@@ -28,7 +27,7 @@ func main() {
 	p3 := &Person{"Jane", "Doe", 30}
 
 	//Create map:
-	M := NewSMap()
+	M := make(Map)
 
 	//Insert into map:
 	M.Insert(p1, "Manager")
@@ -48,7 +47,7 @@ func main() {
 	//Query map:
 	p := &Person{"John", "Rambo", 60}
 	Value, Ok := M.Get(p)
-	if  Ok {
+	if Ok {
 		fmt.Printf("Job = %s\n", Value)
 	}
 
