@@ -46,9 +46,9 @@ func main() {
 
 	//Query map:
 	p := Person{"John", "Rambo", 60}
-	result := M.Get(p)
-	if result.Ok {
-		fmt.Printf("Job = %s\n", result.Value)
+	Value, Ok := M.Get(p)
+	if  Ok {
+		fmt.Printf("Job = %s\n", Value)
 	}
 
 	println("---")
