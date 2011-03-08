@@ -57,8 +57,11 @@ func main() {
 	M.Delete(p1)
 
 	//Check the result of the deletion,
-	//second iteration over map:
-	M.Do(printValues)
+	//second iteration over map 
+	//(using a closure, as an alternative):
+	M.Do(func(v Pair) {
+		fmt.Printf("Person, Job = %v, %s\n", v.Key, v.Value)
+	})
 
 	fmt.Printf("Size of map M = %d\n", M.Len())
 
