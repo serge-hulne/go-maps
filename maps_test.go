@@ -58,7 +58,7 @@ func main() {
 
 	//Check the result of the deletion,
 	//second iteration over map 
-	//(using a closure, as an alternative):
+	//(using a function litteral, as an alternative):
 	M.Do(func(v Pair) {
 		fmt.Printf("Person, Job = %v, %s\n", v.Key, v.Value)
 	})
