@@ -1,6 +1,10 @@
 package maps
 
 
+//---
+// generic Key() based Map:
+//---
+
 type Map map[interface{}]interface{}
 
 type Pair struct {
@@ -41,3 +45,80 @@ func (m Map) Do(f func(Pair)) {
 		f(p.(Pair))
 	}
 }
+
+
+//---
+// Specialized String() based SMap:
+//---
+
+type Stringer interface {
+String() string
+}
+
+type SMap map[string]Pair
+
+func NewSMap() SMap {
+return make(map[string]Pair)
+}
+
+func (m SMap) Insert(key Stringer, value interface{}) {
+m[key.String()] = Pair{key, value}
+}
+
+func (m SMap) Do(f func(Pair)) {
+for key, value := range m {
+f(Pair{key, value})
+}
+}
+
+func (m SMap) Get(key Stringer) (interface{}, bool) {
+v, t := m[key.String()]
+return v, t
+}
+
+func (m SMap) Delete(key Stringer) {
+m[key.String()] = Pair{nil, nil}, false
+}
+
+func (m SMap) Len() int {
+return len(m)
+}
+
+
+//---
+// Specialized Int() based IMap :
+//---
+
+type Inter interface {
+Int() int
+}
+
+type IMap map[int]Pair
+
+func NewIMap() IMap {
+return make(map[int]Pair)
+}
+
+func (m IMap) Insert(key Inter, value interface{}) {
+m[key.Int()] = Pair{key, value}
+}
+
+func (m IMap) Do(f func(Pair)) {
+for key, value := range m {
+f(Pair{key, value})
+}
+}
+
+func (m IMap) Get(key Inter) (interface{}, bool) {
+v, t := m[key.Int()]
+return v, t
+}
+
+func (m IMap) Delete(key Inter) {
+m[key.Int()] = Pair{nil, nil}, false
+}
+
+func (m IMap) Len() int {
+return len(m)
+}
+
