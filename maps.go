@@ -2,7 +2,7 @@ package maps
 
 
 //---
-// generic Key() based Map:
+// generic interface{} Key() based Map:
 //---
 
 type Map map[interface{}]interface{}
@@ -48,7 +48,7 @@ func (m Map) Do(f func(Pair)) {
 
 
 //---
-// Specialized String() based SMap:
+// Specialized String() key based SMap:
 //---
 
 type Stringer interface {
@@ -86,7 +86,7 @@ func (m SMap) Len() int {
 
 
 //---
-// Specialized Int() based IMap :
+// Specialized Int() key based IMap :
 //---
 
 type Inter interface {
