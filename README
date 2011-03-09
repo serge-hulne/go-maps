@@ -2,7 +2,7 @@ Generalized maps for the Go Programming Language:
 ------------------------------------------------
 
 - These containers are targeted at storing aggregate types.
-- These maps accept as keys all interfaces which implement a Key() methodi (see example maps_test.go).
+- These maps accept as keys all interfaces which implement a Key() method (see example maps_test.go).
 
 This is an attempt at generalizing the Go built-in map type to aggregate types.
 Thanks to Nigel Tao and Roger Peppe for their suggestions and support !
