@@ -52,36 +52,36 @@ func (m Map) Do(f func(Pair)) {
 //---
 
 type Stringer interface {
-String() string
+	String() string
 }
 
 type SMap map[string]Pair
 
 func NewSMap() SMap {
-return make(map[string]Pair)
+	return make(map[string]Pair)
 }
 
 func (m SMap) Insert(key Stringer, value interface{}) {
-m[key.String()] = Pair{key, value}
+	m[key.String()] = Pair{key, value}
 }
 
 func (m SMap) Do(f func(Pair)) {
-for key, value := range m {
-f(Pair{key, value})
-}
+	for key, value := range m {
+		f(Pair{key, value})
+	}
 }
 
 func (m SMap) Get(key Stringer) (interface{}, bool) {
-v, t := m[key.String()]
-return v, t
+	v, t := m[key.String()]
+	return v, t
 }
 
 func (m SMap) Delete(key Stringer) {
-m[key.String()] = Pair{nil, nil}, false
+	m[key.String()] = Pair{nil, nil}, false
 }
 
 func (m SMap) Len() int {
-return len(m)
+	return len(m)
 }
 
 
@@ -90,35 +90,34 @@ return len(m)
 //---
 
 type Inter interface {
-Int() int
+	Int() int
 }
 
 type IMap map[int]Pair
 
 func NewIMap() IMap {
-return make(map[int]Pair)
+	return make(map[int]Pair)
 }
 
 func (m IMap) Insert(key Inter, value interface{}) {
-m[key.Int()] = Pair{key, value}
+	m[key.Int()] = Pair{key, value}
 }
 
 func (m IMap) Do(f func(Pair)) {
-for key, value := range m {
-f(Pair{key, value})
-}
+	for key, value := range m {
+		f(Pair{key, value})
+	}
 }
 
 func (m IMap) Get(key Inter) (interface{}, bool) {
-v, t := m[key.Int()]
-return v, t
+	v, t := m[key.Int()]
+	return v, t
 }
 
 func (m IMap) Delete(key Inter) {
-m[key.Int()] = Pair{nil, nil}, false
+	m[key.Int()] = Pair{nil, nil}, false
 }
 
 func (m IMap) Len() int {
-return len(m)
+	return len(m)
 }
-
