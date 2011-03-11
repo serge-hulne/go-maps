@@ -35,8 +35,8 @@ func main() {
 	M.Insert(p3, "Secretary")
 
 	//Action to perform during iteration:
-	printValues := func(v Pair) {
-		fmt.Printf("Person, Job = %v, %s\n", v.Key, v.Value)
+	printValues := func(k interface{}, v interface{}) {
+		fmt.Printf("Person, Job = %v, %s\n", k, v)
 	}
 
 	//Iterate over Map:
@@ -59,8 +59,8 @@ func main() {
 	//Check the result of the deletion,
 	//second iteration over map 
 	//(using a function litteral, as an alternative):
-	M.Do(func(v Pair) {
-		fmt.Printf("Person, Job = %v, %s\n", v.Key, v.Value)
+	M.Do(func(k interface{}, v interface{}) {
+		fmt.Printf("Person, Job = %v, %s\n", k, v)
 	})
 
 	fmt.Printf("Size of map M = %d\n", M.Len())

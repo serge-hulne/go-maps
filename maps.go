@@ -40,9 +40,9 @@ func (m Map) Len() int {
 	return len(m)
 }
 
-func (m Map) Do(f func(Pair)) {
+func (m Map) Do(f func(key interface{}, value interface{})) {
 	for _, p := range m {
-		f(p.(Pair))
+		f(p.(Pair).Key, p.(Pair).Value)
 	}
 }
 
@@ -65,9 +65,9 @@ func (m SMap) Insert(key Stringer, value interface{}) {
 	m[key.String()] = Pair{key, value}
 }
 
-func (m SMap) Do(f func(Pair)) {
-	for key, value := range m {
-		f(Pair{key, value})
+func (m SMap) Do(f func(key interface{},value interface{})) {
+	for _, p := range m {
+		f(p.Key, p.Value)
 	}
 }
 
@@ -103,9 +103,9 @@ func (m IMap) Insert(key Inter, value interface{}) {
 	m[key.Int()] = Pair{key, value}
 }
 
-func (m IMap) Do(f func(Pair)) {
-	for key, value := range m {
-		f(Pair{key, value})
+func (m IMap) Do(f func(key interface{}, value interface{})) {
+	for _, p := range m {
+		f(p.Key, p.Value)
 	}
 }
 
