@@ -73,7 +73,7 @@ func (m SMap) Do(f func(Pair)) {
 
 func (m SMap) Get(key Stringer) (interface{}, bool) {
 	v, t := m[key.String()]
-	return v, t
+	return v.Value, t
 }
 
 func (m SMap) Delete(key Stringer) {
@@ -111,7 +111,7 @@ func (m IMap) Do(f func(Pair)) {
 
 func (m IMap) Get(key Inter) (interface{}, bool) {
 	v, t := m[key.Int()]
-	return v, t
+	return v.Value, t
 }
 
 func (m IMap) Delete(key Inter) {
